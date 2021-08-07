@@ -26,7 +26,7 @@ PS: to exit the ssh server prompt, simply use the [`exit`](https://linux.die.net
 
 ---
 
-##### Password Password for next level:
+##### Password for next level:
     boJ9jbbUNNfktd78OOpsqOltutMc3MY1
 
 ---

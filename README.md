@@ -2,7 +2,7 @@
 
 
 - ###  [Bandit Writeups](bandit)
-
+- ###  [Krypton Writeups](krypton)
 
 ---
 

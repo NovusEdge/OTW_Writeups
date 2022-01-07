@@ -1,9 +1,9 @@
-# OTW_Writeups Contents:
+# Wargames
 
+- #####  [Bandit Writeups](bandit)
+- #####  [Krypton Writeups](krypton)
+- #####  [Leviathan Writeups](leviathan)
 
-- ###  [Bandit Writeups](bandit)
-- ###  [Krypton Writeups](krypton)
-
----
+***
 
 [OverTheWire](https://overthewire.org/wargames/)

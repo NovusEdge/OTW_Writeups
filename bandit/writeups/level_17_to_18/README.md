@@ -1,6 +1,6 @@
-### Discription:
+### Description:
 ```txt
-There are 2 files in the homedirectory: passwords.old and passwords.new. The
+There are 2 files in the home-directory: passwords.old and passwords.new. The
 password for the next level is in passwords.new and is the only line that has been
 changed between passwords.old and passwords.new
 
@@ -11,7 +11,7 @@ bandit18, this is related to the next level, bandit19
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```console
 $ sudo ssh -i sshkey.private bandit17@bandit.labs.overthewire.org -p 2220
 ```
 
@@ -19,9 +19,9 @@ _You'll need to use the Private RSA key from the previous level, I've put it in 
 
 <br>
 
-We can use the [`diff`]() tool to get the only line that is different in the 2 files: `password.new` and `password.old`
+We can use the [`diff`](https://linux.die.net/man/1/diff) tool to get the only line that is different in the 2 files: `password.new` and `password.old`
 
-```zsh
+```console
 $ diff passwords.old passwords.new
 42c42
 < w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii

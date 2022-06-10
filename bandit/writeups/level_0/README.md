@@ -1,4 +1,4 @@
-### Discription:
+### Description:
 ```
 The goal of this level is for you to log into the game using SSH.
 The host to which you need to connect is bandit.labs.overthewire.org, on port 2220.
@@ -8,9 +8,9 @@ Once logged in, go to the Level 1 page to find out how to beat Level 1.
 
 ---
 
-As stated in the discription for `level_0`, we use [`ssh`](https://linux.die.net/man/1/ssh) to log into the given host.
+As stated in the description for `level_0`, we use [`ssh`](https://linux.die.net/man/1/ssh) to log into the given host.
 
-```zsh
+```console
 $ ssh bandit.labs.overthewire.org -l bandit0 -p 2220
 
 This is a OverTheWire game server. More information on http://www.overthewire.org/wargames

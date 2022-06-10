@@ -19,3 +19,5 @@
 - [Level 15 ➙ Level 16](writeups/level_15_to_16)
 - [Level 16 ➙ Level 17](writeups/level_16_to_17)
 - [Level 17 ➙ Level 18](writeups/level_17_to_18)
+- [Level 18 ➙ Level 19](writeups/level_18_to_19)
+- [Level 19 ➙ Level 20](writeups/level_19_to_20)

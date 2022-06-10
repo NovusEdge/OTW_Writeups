@@ -1,4 +1,4 @@
-### Discription:
+### Description:
 ```txt
 The password for the next level can be retrieved by submitting the password of
 the current level to port 30001 on localhost using SSL encryption.
@@ -11,7 +11,7 @@ command also works in this version of that command…
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```console
 $ ssh bandit.labs.overthewire.org -l bandit15 -p 2220
 ```
 
@@ -23,7 +23,7 @@ _You'll need to pass in the password from the previous level, i.e.: `BfMYroe26WY
 Since the password is SSL encrypted, we can use [`openssl`](https://linux.die.net/man/1/openssl) to retrieve the password:
 
 
-```zsh
+```console
 bandit15@bandit:~$ openssl s_client -ign_eof -connect localhost:30001 --quiet
 depth=0 CN = localhost
 verify error:num=18:self signed certificate

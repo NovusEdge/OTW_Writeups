@@ -1,4 +1,4 @@
-### Discription:
+### Description:
 ```txt
 The password for the next level is stored somewhere on the server and has all of the following properties:
 
@@ -10,7 +10,7 @@ The password for the next level is stored somewhere on the server and has all of
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```console
 $ ssh bandit.labs.overthewire.org -l bandit6 -p 2220
 ```
 
@@ -18,14 +18,14 @@ _You'll need to pass in the password from the previous level, i.e.: `DXjZPULLxYr
 
 <br>
 
-After reading the level discription, we have been given the following properties of the file which contains the password for the next level:
+After reading the level description, we have been given the following properties of the file which contains the password for the next level:
 - owner user: `bandit7`
 - owner group: `bandit6`
 - size: `33 bytes`
 
 We can once again use the [`find`](https://linux.die.net/man/1/find) command to find the file with the given specifications.
 
-```zsh
+```console
 bandit6@bandit:~$ find / -group "bandit6" -user "bandit7" -size 33c -type f
 find: ‘/root’: Permission denied
 find: ‘/home/bandit28-git’: Permission denied
@@ -94,7 +94,7 @@ find: ‘/var/cache/ldconfig’: Permission denied
 
 Going through these, we can clearly notice that the file `/var/lib/dpkg/info/bandit7.password` can be accessed, and also, holds the password to the next level.
 
-```zsh
+```console
 bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
 HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
 ```

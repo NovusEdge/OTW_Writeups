@@ -1,4 +1,4 @@
-### Discription:
+### Description:
 ```txt
 The password for the next level is stored in the only human-readable file in the inhere directory.
 Tip: if your terminal is messed up, try the “reset” command.
@@ -7,7 +7,7 @@ Tip: if your terminal is messed up, try the “reset” command.
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```console
 $ ssh bandit.labs.overthewire.org -l bandit4 -p 2220
 ```
 
@@ -15,15 +15,15 @@ _You'll need to pass in the password from the previous level, i.e.: `pIwrPrtPN36
 
 <br>
 
-Now, as per the discription of the level, we navigate to the `inhere` directory using the [`cd`](https://linux.die.net/man/1/cd) command:
+Now, as per the description of the level, we navigate to the `inhere` directory using the [`cd`](https://linux.die.net/man/1/cd) command:
 
-```zsh
+```console
 bandit4@bandit:~$ cd inhere/
 ```
 
 Next, we need to find which of these files is human readable. We can use the [`file`](https://linux.die.net/man/1/file) command to see what type of file is the odd one out:
 
-```zsh
+```console
 bandit4@bandit:~/inhere$ file ./*
 ./-file00: data
 ./-file01: data
@@ -42,7 +42,7 @@ bandit4@bandit:~/inhere$ file ./*
 We can then use the [`cat`](https://linux.die.net/man/1/cat) command to display the contents of `-file07` to get the password for the next level:
 
 
-```zsh
+```console
 bandit4@bandit:~/inhere$ cat ./-file07
 koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 ```

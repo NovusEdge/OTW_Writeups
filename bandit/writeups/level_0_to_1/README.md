@@ -1,4 +1,4 @@
-### Discription:
+### Description:
 ```txt
 The password for the next level is stored in a file called readme located in the
 home directory.
@@ -11,11 +11,11 @@ that level and continue the game.
 
 ---
 
-Now as stated in the discription, and from the previous level, i.e. `level 0`, we have already logged onto the ssh server.
+Now as stated in the description, and from the previous level, i.e. `level 0`, we have already logged onto the ssh server.
 
-As the discription states, the password to next level is located in a file:`~/readme` on the ssh server. To display it's contents, we simply use:
+As the description states, the password to next level is located in a file:`~/readme` on the ssh server. To display it's contents, we simply use:
 
-```zsh
+```console
 bandit0@bandit:~$ cat readme
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1
 ```

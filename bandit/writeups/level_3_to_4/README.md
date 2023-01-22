@@ -6,7 +6,7 @@ The password for the next level is stored in a hidden file in the "inhere" direc
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit3 -p 2220
 ```
 _You'll need to pass in the password from the previous level, i.e.: `UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK`_
@@ -15,7 +15,7 @@ _You'll need to pass in the password from the previous level, i.e.: `UmHadQclWmg
 
 Now, as per the discription of the level, we navigate to the `inhere` directory using the [`cd`](https://linux.die.net/man/1/cd) command.
 
-```zsh
+```shell-session
 bandit3@bandit:~$ cd inhere/
 bandit3@bandit:~/inhere$
 ```
@@ -24,7 +24,7 @@ bandit3@bandit:~/inhere$
 
 Since we've been given the hint that the file is "hidden", we can use the [`ls`](https://linux.die.net/man/1/ls) command with the `-a` flag to display all files within the directory.
 
-```zsh
+```shell-session
 bandit3@bandit:~/inhere$ ls -a
 .  ..  .hidden
 ```
@@ -35,7 +35,7 @@ There it is. The hidden file's named: `.hidden`
 
 Once again using the [`cat`](https://linux.die.net/man/1/cat) command we can display the password for the next level:
 
-```zsh
+```shell-session
 bandit3@bandit:~/inhere$ cat ./.hidden
 pIwrPrtPN36QITSp3EQaw936yaFoFgAB
 ```

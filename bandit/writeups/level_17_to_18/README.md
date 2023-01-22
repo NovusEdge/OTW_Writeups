@@ -32,8 +32,6 @@ $ diff passwords.old passwords.new
 And there we have the password :)
 ---
 
-
-
 ##### Password for next level:
     kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
 

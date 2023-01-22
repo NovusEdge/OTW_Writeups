@@ -10,7 +10,7 @@ Note: localhost is a hostname that refers to the machine you are working on.
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit13 -p 2220
 ```
 
@@ -20,7 +20,7 @@ _You'll need to pass in the password from the previous level, i.e.: `8ZjyCRiBWFY
 
 When we check the home directory for files:
 
-```zsh
+```shell-session
 bandit13@bandit:~$ ls
 sshkey.private
 ```
@@ -30,7 +30,7 @@ We'll copy this over into the local machine.
 
 To do so, we can use the [`scp`](https://linux.die.net/man/1/scp) command:
 
-```zsh
+```shell-session
 $ scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
 ```
 
@@ -71,14 +71,14 @@ kAWpXbv5tbkkzbS0eaLPTKgLzavXtQoTtKwrjpolHKIHUz6Wu+n4abfAIRFubOdN
 
 Now, we can use this private key to log onto the ssh server under `bandit14`:
 
-```zsh
+```shell-session
 $ chmod 400 sshkey.private
 $ ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
 ```
 
 Now we can simply get the password from the file mentioned in the level discription:
 
-```zsh
+```shell-session
 bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 ```

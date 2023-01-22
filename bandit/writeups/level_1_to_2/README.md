@@ -11,7 +11,7 @@ According to the level discription, the password to the next level is in a file 
 
 First we need to log into the ssh server using the [`ssh`](https://linux.die.net/man/1/ssh) command like so:
 
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit1 -p 2220
 ```
 
@@ -21,7 +21,7 @@ _You'll need to pass in the password from the previous level, i.e.: `boJ9jbbUNNf
 
 We're greeted with the following prompt:
 
-```zsh
+```shell-session
 bandit1@bandit:~$
 ```
 
@@ -31,7 +31,7 @@ bandit1@bandit:~$
 First, let we see what files are under the home directory:
 
 ###### Command:
-```zsh
+```shell-session
 bandit1@bandit:~$ ls -l
 ```
 
@@ -48,7 +48,7 @@ total 4
 
 Now, following the level discription, we can use the following to get the password from the `-` file.
 
-```zsh
+```shell-session
 bandit1@bandit:~$ cat ~/-
 CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
 ```

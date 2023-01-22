@@ -11,7 +11,7 @@ you send to it.
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit16 -p 2220
 ```
 
@@ -21,7 +21,7 @@ _You'll need to pass in the password from the previous level, i.e.: `cluFn7wTiGr
 
 We can employ [`netcat`](https://linux.die.net/man/1/nc) to scan for open ports, like so:
 
-```zsh
+```shell-session
 bandit16@bandit:~$ nc -zv localhost 31000-32000
 localhost [127.0.0.1] 31960 (?) open
 localhost [127.0.0.1] 31790 (?) open
@@ -32,14 +32,14 @@ localhost [127.0.0.1] 31046 (?) open
 
 Lets store these in an array:
 
-```zsh
+```shell-session
 bandit16@bandit:~$ ports=(31960,31790,31691,31518,31046)
 ```
 
 <br>
 
 We now can try each of the ports one-by-one and see:
-```zsh
+```shell-session
 bandit16@bandit:~$ cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 --quiet
 depth=0 CN = localhost
 verify error:num=18:self signed certificate

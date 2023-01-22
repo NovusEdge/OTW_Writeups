@@ -7,7 +7,7 @@ in one of the few human-readable strings, preceded by several ‘=’ characters
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit9 -p 2220
 ```
 
@@ -18,7 +18,7 @@ _You'll need to pass in the password from the previous level, i.e.: `UsvVyFSfZZW
 
 Following the level discription, we can use the [`strings`](https://linux.die.net/man/1/strings) and [`grep`](https://linux.die.net/man/1/grep) to extract the password from `data.txt`
 
-```zsh
+```shell-session
 bandit9@bandit:~$ strings data.txt | grep "=="
 ========== the*2i"4
 ========== password

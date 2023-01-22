@@ -11,7 +11,7 @@ Then copy the datafile using cp, and rename it using mv (read the manpages!)
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit12 -p 2220
 ```
 
@@ -23,7 +23,7 @@ As mentioned in the level discription, the password/data in `data.txt` has been 
 
 But first, we'll use the [`mkdir`](https://linux.die.net/man/1/mkdir), [`cp`](https://linux.die.net/man/1/cp), and [`mv`](https://linux.die.net/man/1/mv) commands to create a directory under `/tmp` and copy the data from `data.txt` there.
 
-```zsh
+```shell-session
 # Creating a directory named "decomp_hex".
 bandit12@bandit:~$ mkdir /tmp/decomp_hex
 bandit12@bandit:~$ cd /tmp/decomp_hex
@@ -41,7 +41,7 @@ bandit12@bandit:/tmp/decomp_hex$ mv data.txt data_copied.txt
 
 Now, we'll use [`xdd`](https://linux.die.net/man/1/xxd) to de-hex the hexdump.
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ xxd -r data_copied.txt > data_dehex.txt
 ```
 
@@ -50,14 +50,14 @@ bandit12@bandit:/tmp/decomp_hex$ xxd -r data_copied.txt > data_dehex.txt
 
 Next we can check what type of a file `data_dehex.txt` is by using the [`file`](https://linux.die.net/man/1/xxd) command:
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data_dehex.txt
 data_dehex.txt: gzip compressed data, was "data2.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
 ```
 
 Since it is a [gzip](https://en.wikipedia.org/wiki/Gzip) file, we can use the [`gzip`](https://linux.die.net/man/1/gzip) command to decompress it:
 
-```zsh
+```shell-session
 # For some reason, gzip won't decompress the file with txt extension so we rename it:
 bandit12@bandit:/tmp/decomp_hex$ mv data_dehex.txt data_dehex.gz
 
@@ -70,13 +70,13 @@ data_copied.txt  data_dehex
 <br>
 
 Let's once again check what type of file `data_dehex` is:
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data_dehex
 data_dehex: bzip2 compressed data, block size = 900k
 ```
 
 We can see it's a file compressed using [bzip](http://www.bzip.org/), so we can use the [`bzip2`](https://linux.die.net/man/1/bzip2) command to decompress it:
-```zsh
+```shell-session
 # Decompressing the bzip data
 bandit12@bandit:/tmp/decomp_hex$ bzip2 --decompress data_dehex
 bzip2: Can't guess original name for data_dehex -- using data_dehex.out
@@ -88,14 +88,14 @@ data_copied.txt  data_dehex.out
 <br>
 
 Let's check what kind of a file `data_dehex.out` is:
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data_dehex.out
 data_dehex.out: gzip compressed data, was "data4.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
 ```
 
 We can see that it is a gzip compressed file, so we can use the [`gzip`](https://linux.die.net/man/1/gzip) tool once again to decompress it
 
-```zsh
+```shell-session
 # Renaming the file so that gzip works:
 bandit12@bandit:/tmp/decomp_hex$ mv data_dehex.out data_dehex.gz
 
@@ -107,7 +107,7 @@ bandit12@bandit:/tmp/decomp_hex$ gzip --decompress data_dehex.gz
 
 Now, once again we'll check what type of a file this is:
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data_dehex
 data_dehex: POSIX tar archive (GNU)
 ```
@@ -115,7 +115,7 @@ data_dehex: POSIX tar archive (GNU)
 Since it is a [tar](https://www.gnu.org/software/tar/manual/) archive, we can use the [`tar`](https://linux.die.net/man/1/tar) command/tool to decompress it.
 
 
-```zsh
+```shell-session
 # Decompressing the tar archive
 bandit12@bandit:/tmp/decomp_hex$ tar -xf data_dehex
 
@@ -127,14 +127,14 @@ data5.bin  data_copied.txt  data_dehex
 
 We've got a file: `data5.bin` as a result of the decompression, we can now check what type of a file it is:
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data5.bin
 data5.bin: POSIX tar archive (GNU)
 ```
 
 We will once again use the [`tar`](https://linux.die.net/man/1/tar) command/tool to decompress `data5.bin`
 
-```zsh
+```shell-session
 # Decompressing data5.bin:
 bandit12@bandit:/tmp/decomp_hex$ tar -xf data5.bin
 
@@ -146,14 +146,14 @@ data5.bin  data6.bin  data_copied.txt  data_dehex
 
 Just like before, we check what type of a file `data6.bin` is:
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data6.bin
 data6.bin: bzip2 compressed data, block size = 900k
 ```
 
 We once again use the [`bzip2`](https://linux.die.net/man/1/bzip2) tool to decompress the file.
 
-```zsh
+```shell-session
 # Decompressing data6.bin using bzip2:
 bandit12@bandit:/tmp/decomp_hex$ bzip2 --decompress data6.bin
 bzip2: Can't guess original name for data6.bin -- using data6.bin.out
@@ -167,7 +167,7 @@ data5.bin  data6.bin.out  data_copied.txt  data_dehex
 
 Now, we check the resultant file:
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data6.bin.out
 data6.bin.out: POSIX tar archive (GNU)
 
@@ -182,14 +182,14 @@ data5.bin  data6.bin.out  data8.bin  data_copied.txt  data_dehex
 
 Checking `data8.bin`:
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data8.bin
 data8.bin: gzip compressed data, was "data9.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
 ```
 
 Using the [`gzip`](https://linux.die.net/man/1/bzip2) command/tool:
 
-```zsh
+```shell-session
 # Renaming data8.bin to data8.gz
 bandit12@bandit:/tmp/decomp_hex$ mv data8.bin data8.gz
 
@@ -204,14 +204,14 @@ data5.bin  data6.bin.out  data8  data_copied.txt  data_dehex
 
 Now let's check the resultant file:
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ file data8
 data8: ASCII text
 ```
 
 This is the final file containing the password :)
 
-```zsh
+```shell-session
 bandit12@bandit:/tmp/decomp_hex$ cat data8
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```

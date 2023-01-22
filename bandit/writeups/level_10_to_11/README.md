@@ -8,7 +8,7 @@ which contains base64 encoded data
 
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit10 -p 2220
 ```
 
@@ -21,7 +21,7 @@ As stated in the level discription, we have been given a file with [base64](http
 
 Let's first have a look at the raw base64 encoded data:
 
-```zsh
+```shell-session
 bandit10@bandit:~$ cat data.txt
 VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==
 ```
@@ -30,7 +30,7 @@ VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==
 
 To get the decoded password, we'll use the [`base64`](https://linux.die.net/man/1/base64) command/tool.
 
-```zsh
+```shell-session
 bandit10@bandit:~$ base64 -d data.txt
 The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 ```

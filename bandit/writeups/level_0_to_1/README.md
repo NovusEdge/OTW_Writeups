@@ -15,7 +15,7 @@ Now as stated in the discription, and from the previous level, i.e. `level 0`, w
 
 As the discription states, the password to next level is located in a file:`~/readme` on the ssh server. To display it's contents, we simply use:
 
-```zsh
+```shell-session
 bandit0@bandit:~$ cat readme
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1
 ```

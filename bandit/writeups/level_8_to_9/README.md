@@ -6,7 +6,7 @@ The password for the next level is stored in the file data.txt and is the only l
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit8 -p 2220
 ```
 
@@ -20,7 +20,7 @@ As mentioned in the level discription, we know that the password is the only uni
 We can do this by using a mix of the [`uniq`](https://linux.die.net/man/1/uniq), [`sort`](https://linux.die.net/man/1/sort) and [`grep`](https://linux.die.net/man/1/grep) commands:
 
 
-```zsh
+```shell-session
 bandit8@bandit:~$ sort data.txt | uniq -c | grep "1 "
       1 UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
 ```

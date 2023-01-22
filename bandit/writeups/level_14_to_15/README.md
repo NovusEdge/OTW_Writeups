@@ -6,7 +6,7 @@ The password for the next level can be retrieved by submitting the password of t
 ---
 
 Just like the previous levels we ssh into the server using:
-```zsh
+```shell-session
 $ ssh bandit.labs.overthewire.org -l bandit14 -p 2220
 ```
 
@@ -18,7 +18,7 @@ As mentioned in the level discription, we can get the password for the next leve
 
 For this we can use the [`telnet`](https://linux.die.net/man/1/telnet) command:
 
-```zsh
+```shell-session
 bandit14@bandit:~$ telnet localhost 30000
 Trying 127.0.0.1...
 Connected to localhost.
